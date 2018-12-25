@@ -24,7 +24,7 @@
             <ul>
                 <li style="display:inline;"><a href="/">首頁</a> </li>
                 <li style="display:inline;"><a href="/product/1">商品</a> </li>
-                <li style="display:inline;"><a href="/">購物車</a></li>
+                <li style="display:inline;"><a href="/car">購物車</a></li>
             </ul>
         </div>
         @section('main')

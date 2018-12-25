@@ -25,4 +25,8 @@ class MerchandiseController extends Controller
             ,'Pttops'=>$Pttops                          //用來呈現商品列表
         ]);
     }
+    public function car(){
+        $datas = DB::table('cars')->get();
+        return $datas;
+    }
 }

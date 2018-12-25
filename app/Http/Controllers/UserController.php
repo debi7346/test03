@@ -43,7 +43,7 @@ class UserController extends Controller
                return  view('Backstage',
                     [
                          'name'=> $name
-                    ] 
+                    ]
                );
           }
           else
@@ -64,8 +64,22 @@ class UserController extends Controller
      }
      public function Update(Request $request)
      {
-     $datas = $request->all();
-     return $datas;
+          $name = $request->input('userpassword');
+          $newpassword = $request->input('password');
+          $checkpassword = $request->input('password_confirmation');
+          $username  = Session::get('username');                 //讀取使用者名稱來取得使用者密碼比對
+          $datas =Test::where(['name'=>$username])->get();
+          if($datas[0]->password == $name && $newpassword == $checkpassword)    //如果資料庫密碼＝輸入密碼  和新密碼與二次確認密碼都成立
+          {
+               Test::where(['name'=>$username])->update(['password'=>$newpassword]); //修改 password欄位
+               echo "更新成功";
+               return  view("sign_update");
+          }
+          else
+          {
+               echo "使用者密碼輸入錯誤";
+               return  view("sign_update");
+          }
      }
      /**
       *跳轉至首頁

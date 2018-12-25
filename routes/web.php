@@ -44,6 +44,7 @@ Route::get('/sign_update','UserController@sign_update');//轉至重設密碼
  *  商品 Merchandise 頁面跳轉
  */
 Route::get('/product/{id}','MerchandiseController@Productcontent');//轉至商品
+Route::get('/car','MerchandiseController@car');            //轉至購物車
 //----------------------------------------------------------------------
 
 Route::get('/1234','UserController@fff');
